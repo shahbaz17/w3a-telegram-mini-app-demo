@@ -68,39 +68,51 @@ function App() {
               label: "openlogin",
               loginMethods: {
                 google: {
+                  name: "Google",
                   showOnModal: false,
                 },
                 facebook: {
+                  name: "Facebook",
                   showOnModal: false,
                 },
                 reddit: {
+                  name: "Reddit",
                   showOnModal: false,
                 },
                 twitter: {
+                  name: "Twitter",
                   showOnModal: false,
                 },
                 github: {
+                  name: "Github",
                   showOnModal: false,
                 },
                 linkedin: {
+                  name: "LinkedIn",
                   showOnModal: false,
                 },
                 apple: {
+                  name: "Apple",
                   showOnModal: false,
                 },
                 line: {
+                  name: "Line",
                   showOnModal: false,
                 },
                 wechat: {
+                  name: "WeChat",
                   showOnModal: false,
                 },
                 weibo: {
+                  name: "Weibo",
                   showOnModal: false,
                 },
                 twitch: {
+                  name: "Twitch",
                   showOnModal: false,
                 },
                 kakao: {
+                  name: "Kakao",
                   showOnModal: false,
                 },
               },
