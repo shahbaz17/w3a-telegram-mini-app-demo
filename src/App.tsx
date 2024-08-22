@@ -165,14 +165,6 @@ function App() {
           </button>
         </div>
         <div>
-          <button
-            className="card"
-            onClick={() => WebApp.showAlert(`Hello World!`)}
-          >
-            Show Alert
-          </button>
-        </div>
-        <div>
           <button onClick={signMessage} className="card">
             Sign Message
           </button>
