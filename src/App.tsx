@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-console */
 import "./App.css";
-
-// IMP START - Quick Start
 import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK } from "@web3auth/base";
 import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
 import { Web3Auth } from "@web3auth/modal";
-// IMP END - Quick Start
 import { useEffect, useState } from "react";
 
+import WebApp from "@twa-dev/sdk";
+
 // IMP START - Blockchain Calls
-import RPC from "./ethersRPC";
-// import RPC from "./viemRPC";
+// import RPC from "./ethersRPC";
+import RPC from "./viemRPC";
 // import RPC from "./web3RPC";
 // IMP END - Blockchain Calls
 
 // IMP START - Dashboard Registration
-const clientId = "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"; // get from https://dashboard.web3auth.io
+const clientId =
+  "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"; // get from https://dashboard.web3auth.io
 // IMP END - Dashboard Registration
 
 // IMP START - Chain Config
@@ -43,6 +43,9 @@ const web3auth = new Web3Auth({
   clientId,
   web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
   privateKeyProvider,
+  uiConfig: {
+    uxMode: "redirect",
+  },
 });
 // IMP END - SDK Initialization
 
@@ -162,6 +165,14 @@ function App() {
           </button>
         </div>
         <div>
+          <button
+            className="card"
+            onClick={() => WebApp.showAlert(`Hello World!`)}
+          >
+            Show Alert
+          </button>
+        </div>
+        <div>
           <button onClick={signMessage} className="card">
             Sign Message
           </button>
@@ -189,7 +200,11 @@ function App() {
   return (
     <div className="container">
       <h1 className="title">
-        <a target="_blank" href="https://web3auth.io/docs/sdk/pnp/web/modal" rel="noreferrer">
+        <a
+          target="_blank"
+          href="https://web3auth.io/docs/sdk/pnp/web/modal"
+          rel="noreferrer"
+        >
           Web3Auth{" "}
         </a>
         & React Quick Start
