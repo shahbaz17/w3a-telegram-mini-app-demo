@@ -199,7 +199,7 @@ function App() {
         >
           Web3Auth{" "}
         </a>
-        & React Quick Start
+        & Telegram Mini App Demo
       </h1>
 
       <div className="grid">{loggedIn ? loggedInView : unloggedInView}</div>
