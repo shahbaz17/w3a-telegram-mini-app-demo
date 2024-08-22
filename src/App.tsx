@@ -115,6 +115,10 @@ function App() {
                   name: "Kakao",
                   showOnModal: false,
                 },
+                farcaster: {
+                  name: "Faster",
+                  showOnModal: false,
+                },
               },
             },
           },
