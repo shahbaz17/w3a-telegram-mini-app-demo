@@ -1,7 +1,12 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-console */
 import "./App.css";
-import { CHAIN_NAMESPACES, IProvider, WEB3AUTH_NETWORK } from "@web3auth/base";
+import {
+  CHAIN_NAMESPACES,
+  IProvider,
+  WALLET_ADAPTERS,
+  WEB3AUTH_NETWORK,
+} from "@web3auth/base";
 import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
 import { Web3Auth } from "@web3auth/modal";
 import { useEffect, useState } from "react";
@@ -57,7 +62,51 @@ function App() {
     const init = async () => {
       try {
         // IMP START - SDK Initialization
-        await web3auth.initModal();
+        await web3auth.initModal({
+          modalConfig: {
+            [WALLET_ADAPTERS.OPENLOGIN]: {
+              label: "openlogin",
+              loginMethods: {
+                google: {
+                  showOnModal: false,
+                },
+                facebook: {
+                  showOnModal: false,
+                },
+                reddit: {
+                  showOnModal: false,
+                },
+                twitter: {
+                  showOnModal: false,
+                },
+                github: {
+                  showOnModal: false,
+                },
+                linkedin: {
+                  showOnModal: false,
+                },
+                apple: {
+                  showOnModal: false,
+                },
+                line: {
+                  showOnModal: false,
+                },
+                wechat: {
+                  showOnModal: false,
+                },
+                weibo: {
+                  showOnModal: false,
+                },
+                twitch: {
+                  showOnModal: false,
+                },
+                kakao: {
+                  showOnModal: false,
+                },
+              },
+            },
+          },
+        });
         // IMP END - SDK Initialization
         setProvider(web3auth.provider);
 
