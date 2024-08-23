@@ -5,8 +5,8 @@
       import { Buffer } from "buffer";
       import process from "process";
       window.Buffer = Buffer;
-      window.process = process; 
-    </script>  
+      window.process = process;
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +14,12 @@
   </head>
   <body>
     <div id="root"></div>
+    <h1>Vite + React + TS</h1>
+    <a
+      href="javascript:Telegram.WebApp.openLink('https://web3auth.io',{try_instant_view:true});"
+      >Open link inside Telegram webview</a
+    >
     <script type="module" src="/src/main.tsx"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
   </body>
 </html>
