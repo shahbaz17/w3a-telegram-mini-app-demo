@@ -1,4 +1,4 @@
-import { Web3Auth } from "@web3auth/modal";
+import { Web3Auth, Web3AuthOptions } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, WEB3AUTH_NETWORK } from "@web3auth/base";
 import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
 
@@ -21,6 +21,13 @@ const chainConfig = {
 const privateKeyProvider = new EthereumPrivateKeyProvider({
   config: { chainConfig },
 });
+
+export const web3AuthOptions: Web3AuthOptions = {
+  clientId,
+  chainConfig,
+  web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
+  privateKeyProvider,
+};
 
 export const web3auth = new Web3Auth({
   clientId,

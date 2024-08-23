@@ -2,6 +2,7 @@
   "dependencies": {
     "@twa-dev/sdk": "^6.4.0",
     "@web3auth/base": "^8.12.2",
+    "@web3auth/default-evm-adapter": "^8.12.4",
     "@web3auth/ethereum-provider": "^8.12.3",
     "@web3auth/modal": "^8.12.3",
     "empty-module": "^0.0.2",

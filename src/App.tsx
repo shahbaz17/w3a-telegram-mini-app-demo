@@ -5,7 +5,8 @@ import "./App.mobile.css";
 import { IProvider, WALLET_ADAPTERS } from "@web3auth/base";
 import { useEffect, useState } from "react";
 import RPC from "./viemRPC";
-import { web3auth } from "./web3auth";
+import { web3auth, web3AuthOptions } from "./web3auth";
+import { getDefaultExternalAdapters } from "@web3auth/default-evm-adapter";
 
 function App() {
   const [provider, setProvider] = useState<IProvider | null>(null);
@@ -14,7 +15,12 @@ function App() {
   useEffect(() => {
     const init = async () => {
       try {
-        // IMP START - SDK Initialization
+        const adapters = await getDefaultExternalAdapters({
+          options: web3AuthOptions,
+        });
+        adapters.forEach((adapter) => {
+          web3auth.configureAdapter(adapter);
+        });
         await web3auth.initModal({
           modalConfig: {
             [WALLET_ADAPTERS.OPENLOGIN]: {
