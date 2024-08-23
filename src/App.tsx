@@ -211,27 +211,9 @@ function App() {
     }
   }
 
-  const openLink = async () => {
-    WebApp.openLink("https://web3auth.io", { try_instant_view: true });
-  };
-
-  const openTgLink = async () => {
-    WebApp.openTelegramLink("https://t.me/mdsbzalam");
-  };
-
   const loggedInView = (
     <>
       <div className="flex-container">
-        <div>
-          <button onClick={openLink} className="card">
-            Open link inside Telegram webview
-          </button>
-        </div>
-        <div>
-          <button onClick={openTgLink} className="card">
-            Open Telegram Link
-          </button>
-        </div>
         <div>
           <button onClick={getUserInfo} className="card">
             Get User Info
