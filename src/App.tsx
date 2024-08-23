@@ -1,58 +1,11 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable no-console */
 import "./App.css";
-import {
-  CHAIN_NAMESPACES,
-  IProvider,
-  WALLET_ADAPTERS,
-  WEB3AUTH_NETWORK,
-} from "@web3auth/base";
-import { EthereumPrivateKeyProvider } from "@web3auth/ethereum-provider";
-import { Web3Auth } from "@web3auth/modal";
+import "./App.mobile.css";
+import { IProvider, WALLET_ADAPTERS } from "@web3auth/base";
 import { useEffect, useState } from "react";
-
-import WebApp from "@twa-dev/sdk";
-
-// IMP START - Blockchain Calls
-// import RPC from "./ethersRPC";
 import RPC from "./viemRPC";
-// import RPC from "./web3RPC";
-// IMP END - Blockchain Calls
-
-// IMP START - Dashboard Registration
-const clientId =
-  "BPi5PB_UiIZ-cPz1GtV5i1I2iOSOHuimiXBI0e-Oe_u6X3oVAbCiAZOTEBtTXw4tsluTITPqA8zMsfxIKMjiqNQ"; // get from https://dashboard.web3auth.io
-// IMP END - Dashboard Registration
-
-// IMP START - Chain Config
-const chainConfig = {
-  chainNamespace: CHAIN_NAMESPACES.EIP155,
-  chainId: "0xaa36a7",
-  rpcTarget: "https://rpc.ankr.com/eth_sepolia",
-  // Avoid using public rpcTarget in production.
-  // Use services like Infura, Quicknode etc
-  displayName: "Ethereum Sepolia Testnet",
-  blockExplorerUrl: "https://sepolia.etherscan.io",
-  ticker: "ETH",
-  tickerName: "Ethereum",
-  logo: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
-};
-// IMP END - Chain Config
-
-// IMP START - SDK Initialization
-const privateKeyProvider = new EthereumPrivateKeyProvider({
-  config: { chainConfig },
-});
-
-const web3auth = new Web3Auth({
-  clientId,
-  web3AuthNetwork: WEB3AUTH_NETWORK.SAPPHIRE_MAINNET,
-  privateKeyProvider,
-  uiConfig: {
-    uxMode: "redirect",
-  },
-});
-// IMP END - SDK Initialization
+import { web3auth } from "./web3auth";
 
 function App() {
   const [provider, setProvider] = useState<IProvider | null>(null);
@@ -212,40 +165,26 @@ function App() {
   }
 
   const loggedInView = (
-    <>
-      <div className="flex-container">
-        <div>
-          <button onClick={getUserInfo} className="card">
-            Get User Info
-          </button>
-        </div>
-        <div>
-          <button onClick={getAccounts} className="card">
-            Get Accounts
-          </button>
-        </div>
-        <div>
-          <button onClick={getBalance} className="card">
-            Get Balance
-          </button>
-        </div>
-        <div>
-          <button onClick={signMessage} className="card">
-            Sign Message
-          </button>
-        </div>
-        <div>
-          <button onClick={sendTransaction} className="card">
-            Send Transaction
-          </button>
-        </div>
-        <div>
-          <button onClick={logout} className="card">
-            Log Out
-          </button>
-        </div>
-      </div>
-    </>
+    <div className="flex-container">
+      {/* <button onClick={getUserInfo} className="card">
+        Get User Info
+      </button> */}
+      <button onClick={getAccounts} className="card">
+        Get Accounts
+      </button>
+      <button onClick={getBalance} className="card">
+        Get Balance
+      </button>
+      <button onClick={signMessage} className="card">
+        Sign Message
+      </button>
+      {/* <button onClick={sendTransaction} className="card">
+        Send Transaction
+      </button> */}
+      <button onClick={logout} className="card">
+        Log Out
+      </button>
+    </div>
   );
 
   const unloggedInView = (
@@ -262,9 +201,9 @@ function App() {
           href="https://web3auth.io/docs/sdk/pnp/web/modal"
           rel="noreferrer"
         >
-          Web3Auth{" "}
+          Web3Auth
         </a>
-        & Telegram Mini App Demo
+        {" & Telegram Mini App Demo"}
       </h1>
 
       <div className="grid">{loggedIn ? loggedInView : unloggedInView}</div>
@@ -280,9 +219,9 @@ function App() {
         >
           Source code
         </a>
-        <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWeb3Auth%2Fweb3auth-pnp-examples%2Ftree%2Fmain%2Fweb-modal-sdk%2Fquick-starts%2Freact-vite-evm-modal-quick-start&project-name=w3a-react-vite-no-modal&repository-name=w3a-react-vite-no-modal">
+        {/* <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FWeb3Auth%2Fweb3auth-pnp-examples%2Ftree%2Fmain%2Fweb-modal-sdk%2Fquick-starts%2Freact-vite-evm-modal-quick-start&project-name=w3a-react-vite-no-modal&repository-name=w3a-react-vite-no-modal">
           <img src="https://vercel.com/button" alt="Deploy with Vercel" />
-        </a>
+        </a> */}
       </footer>
     </div>
   );
